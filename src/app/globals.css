@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
+.dark-blue {
+    color: #12276F;
+}
 
-.bg-main-blue{
+.bg-main-blue {
     background-color: #465594;
 }
 
-.bg-main-orange{
+.bg-main-orange {
     background-color: #F38719;
 }
