@@ -1,3 +1,4 @@
+import Menu from './menu'
 
 
 export default function LandingHeader() {
@@ -5,10 +6,11 @@ export default function LandingHeader() {
         <>
             <header className="w-full bg-main-blue h-16 flex items-center justify-between">
                 <div className="flex items-center h-full">
-                    <div className="font-bold text-white text-xl flex items-center ms-5">
+                    <Menu />
+                    <div className="font-bold text-white text-xl flex items-center sm:ms-5 cursor-pointer">
                         سروقت
                     </div>
-                    <ul className="sm:flex text-white text-[15px] list-none ms-5">
+                    <ul className="hidden sm:flex text-white text-[15px] list-none ms-5">
                         <li className="me-4 cursor-pointer">
                             درباره ما
                         </li>
