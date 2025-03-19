@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Menu from "./menu";
 
 export default function LandingHeader() {
@@ -16,9 +17,9 @@ export default function LandingHeader() {
           </ul>
         </div>
         <div className="h-full flex items-center">
-          <button className="bg-main-orange text-[15px] text-white py-3 px-4 text-center rounded-[15px] me-4 cursor-pointer">
+          <Link className="bg-main-orange text-[15px] text-white py-3 px-4 text-center rounded-[15px] me-4 cursor-pointer" href={'/phone-entry'}>
             ثبت نام - ورود
-          </button>
+          </Link>
         </div>
       </header>
     </>
