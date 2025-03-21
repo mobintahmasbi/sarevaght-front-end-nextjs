@@ -6,7 +6,7 @@ export default function LandingHeader() {
     <>
       <header className="w-full bg-main-blue h-16 flex items-center justify-between">
         <div className="flex items-center h-full">
-          <Menu />
+          <Menu menuType="landing" />
           <div className="font-bold text-white text-xl flex items-center sm:ms-5 cursor-pointer">
             سروقت
           </div>
