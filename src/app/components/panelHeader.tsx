@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import userIcon from "../../../public/user-icon.png";
 import Menu from "./menu";
 
@@ -15,7 +16,11 @@ export default function PanelHeader() {
             <li className="me-4 cursor-pointer">گزارش روزانه</li>
             <li className="me-4 cursor-pointer">لیست مشتری ها</li>
             <li className="me-4 cursor-pointer">پلن ها</li>
-            <li className="me-4 cursor-pointer">شیفت های کاری</li>
+            <li className="me-4 cursor-pointer">
+              <Link href={'/panel/set-timing'}>
+                شیفت های کاری
+              </Link>
+            </li>
             <li className="me-4 cursor-pointer">پشتیبانی</li>
           </ul>
         </div>

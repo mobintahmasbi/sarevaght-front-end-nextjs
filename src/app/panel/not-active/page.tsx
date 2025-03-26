@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PanelHeader from "../../components/panelHeader";
 import setAddress from "../../../../public/set-address.jpg";
 import setTiming from "../../../../public/set-timing.jpg";
@@ -25,9 +26,12 @@ export default function NotActive() {
           </div>
           <Image src={setTiming} alt="set-timing" className="" />
           <div className="w-full flex items-center justify-center">
-            <button className="sm:w-1/2 w-2/3 bg-main-blue text-white rounded-[15px] p-2 mt-2">
+            <Link
+              className="sm:w-1/2 w-2/3 bg-main-blue text-white rounded-[15px] p-2 mt-2 text-center"
+              href={"/panel/set-timing"}
+            >
               تنظیم شیفت های کاری
-            </button>
+            </Link>
           </div>
         </div>
       </div>

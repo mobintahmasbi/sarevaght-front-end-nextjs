@@ -8,6 +8,18 @@
     color: #696969
 }
 
+.main-gray{
+    color: #909090;
+}
+
+.main-red{
+    color: #BE0000;
+}
+
+.bg-light-red{
+    background-color: #E6BDBD;
+}
+
 .border-dark-blue {
     border-color: #12276F;
 }
@@ -26,6 +38,17 @@
 
 .bg-secondary-blue {
     background-color: #637ED6;
+}
+
+.dark-green {
+    color: #208900;
+}
+ .bg-light-green {
+    background-color: #BDE6C6;
+ }
+
+.main-green {
+    color: #278F07;
 }
 
 .main-border {
