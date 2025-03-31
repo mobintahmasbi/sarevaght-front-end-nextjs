@@ -4,19 +4,19 @@
     color: #12276F;
 }
 
-.dark-white{
+.dark-white {
     color: #696969
 }
 
-.main-gray{
+.main-gray {
     color: #909090;
 }
 
-.main-red{
+.main-red {
     color: #BE0000;
 }
 
-.bg-light-red{
+.bg-light-red {
     background-color: #E6BDBD;
 }
 
@@ -24,7 +24,7 @@
     border-color: #12276F;
 }
 
-.bg-milky{
+.bg-milky {
     background-color: #EBEBEB;
 }
 
@@ -43,9 +43,10 @@
 .dark-green {
     color: #208900;
 }
- .bg-light-green {
+
+.bg-light-green {
     background-color: #BDE6C6;
- }
+}
 
 .main-green {
     color: #278F07;

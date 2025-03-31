@@ -30,20 +30,20 @@ export default function Menu({ menuType }: { menuType: "landing" | "panel" }) {
     panel: [
       {
         title: "گزارش روزانه",
-        link: "/daily-report",
+        link: "/panel/daily-report",
         likey: "pmp-li-1",
         hrKey: "pmp-hr-1",
       },
       {
         title: "لیست مشتری ها",
-        link: "/customers-list",
+        link: "/panel/customers-list",
         likey: "pmp-li-2",
         hrKey: "pmp-hr-2",
       },
-      { title: "پلن ها", link: "/plans", likey: "pmp-li-3", hrKey: "pmp-hr-3" },
+      { title: "پلن ها", link: "/panel/plans", likey: "pmp-li-3", hrKey: "pmp-hr-3" },
       {
         title: "شیفت های کاری",
-        link: "/shifts",
+        link: "/panel/set-timing",
         likey: "pmp-li-4",
         hrKey: "pmp-hr-4",
       },

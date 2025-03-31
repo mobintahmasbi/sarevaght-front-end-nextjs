@@ -15,11 +15,11 @@ export default function PanelHeader() {
           <ul className="hidden sm:flex text-white text-[15px] list-none ms-5">
             <li className="me-4 cursor-pointer">گزارش روزانه</li>
             <li className="me-4 cursor-pointer">لیست مشتری ها</li>
-            <li className="me-4 cursor-pointer">پلن ها</li>
             <li className="me-4 cursor-pointer">
-              <Link href={'/panel/set-timing'}>
-                شیفت های کاری
-              </Link>
+              <Link href={"/panel/plans"}>پلن ها</Link>
+            </li>
+            <li className="me-4 cursor-pointer">
+              <Link href={"/panel/set-timing"}>شیفت های کاری</Link>
             </li>
             <li className="me-4 cursor-pointer">پشتیبانی</li>
           </ul>
