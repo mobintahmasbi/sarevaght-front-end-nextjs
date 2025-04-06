@@ -67,3 +67,16 @@
 .phone-entry:focus {
     border: 3px solid #465594;
 }
+th, td {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #BDBDBD;
+    font-weight: bold;
+}
+td {
+    color: #555555;
+}
+tbody tr:nth-child(odd) td {
+    background-color: #dadada79;
+}

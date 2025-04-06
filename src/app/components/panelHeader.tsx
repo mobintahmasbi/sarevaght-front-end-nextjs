@@ -13,7 +13,9 @@ export default function PanelHeader() {
             سروقت
           </div>
           <ul className="hidden sm:flex text-white text-[15px] list-none ms-5">
-            <li className="me-4 cursor-pointer">گزارش روزانه</li>
+            <li className="me-4 cursor-pointer">
+              <Link href={"/panel/dayli-reports"}>گزارش روزانه</Link>
+            </li>
             <li className="me-4 cursor-pointer">لیست مشتری ها</li>
             <li className="me-4 cursor-pointer">
               <Link href={"/panel/plans"}>پلن ها</Link>
