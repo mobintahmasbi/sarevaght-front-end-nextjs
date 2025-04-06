@@ -16,14 +16,18 @@ export default function PanelHeader() {
             <li className="me-4 cursor-pointer">
               <Link href={"/panel/dayli-reports"}>گزارش روزانه</Link>
             </li>
-            <li className="me-4 cursor-pointer">لیست مشتری ها</li>
+            <li className="me-4 cursor-pointer">
+              <Link href={"/panel/customer-list"}>مدیریت مشتری ها</Link>
+            </li>
             <li className="me-4 cursor-pointer">
               <Link href={"/panel/plans"}>پلن ها</Link>
             </li>
             <li className="me-4 cursor-pointer">
               <Link href={"/panel/set-timing"}>شیفت های کاری</Link>
             </li>
-            <li className="me-4 cursor-pointer">پشتیبانی</li>
+            <li className="cursor-pointer">
+              پشتیبانی
+            </li>
           </ul>
         </div>
         <Image src={userIcon} alt="user-icon" className="me-4 cursor-pointer" />
