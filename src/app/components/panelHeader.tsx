@@ -26,7 +26,7 @@ export default function PanelHeader() {
               <Link href={"/panel/set-timing"}>شیفت های کاری</Link>
             </li>
             <li className="cursor-pointer">
-              پشتیبانی
+              <Link href={"/panel/support"}>پشتیبانی</Link>
             </li>
           </ul>
         </div>
