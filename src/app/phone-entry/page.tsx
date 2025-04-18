@@ -1,4 +1,13 @@
+"use client"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { sendPhoneNumber } from "../utils/phoneEntry.functionality";
+
 export default function PhoneEntry() {
+  const [phoneEntryState, setPhoneEntryState] = useState({
+    phoneNumber: ''
+  })
+  const router = useRouter()
   return (
     <>
       <div className="w-full h-[100vh] flex items-center justify-center">
@@ -15,13 +24,18 @@ export default function PhoneEntry() {
                 lang="en"
                 dir="ltr"
                 type="text"
+                value={phoneEntryState.phoneNumber}
+                onChange={(e) => setPhoneEntryState((value) => { return ({
+                  ...value,
+                  phoneNumber: e.target.value
+                })})}
                 className="w-full rounded-[15px] px-4 sm:h-[60px] h-[52px] secondary-border bg-milky text-[15px] text-center focus:outline-none font-bold dark-white phone-entry"
                 placeholder="شماره تلفن خود را وارد نمایید"
               />
             </div>
           </div>
           <div className="w-full flex justify-center mt-9">
-            <button className="bg-main-orange text-white text-[16px] font-bold rounded-[15px] px-5 py-3 cursor-pointer hover:opacity-80">
+            <button className="bg-main-orange text-white text-[16px] font-bold rounded-[15px] px-5 py-3 cursor-pointer hover:opacity-80" onClick={() => sendPhoneNumber(phoneEntryState.phoneNumber, router)}>
               ارسال کد تایید
             </button>
           </div>
