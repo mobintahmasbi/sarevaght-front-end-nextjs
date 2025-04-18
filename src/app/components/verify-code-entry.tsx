@@ -1,7 +1,11 @@
 "use client";
 import React, { useRef, useState } from "react";
 
-const VerifyCodeEntry: React.FC = () => {
+interface VerifyCodeEntryProps {
+  onOtpChange?: (otp: string[]) => void;
+}
+
+const VerifyCodeEntry: React.FC<VerifyCodeEntryProps> = ({ onOtpChange }) => {
   const [otp, setOtp] = useState<string[]>(Array(5).fill(""));
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -10,7 +14,8 @@ const VerifyCodeEntry: React.FC = () => {
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
-
+    
+    onOtpChange?.(newOtp)
     // Move to the next input if a digit is entered
     if (value && index < otp.length - 1) {
       inputRefs.current[index + 1]?.focus();
