@@ -1,6 +1,16 @@
+"use client"
+/* eslint-disable react-hooks/exhaustive-deps */
 import PanelHeader from "@/app/components/panelHeader";
+import { checkActivation } from "@/app/utils/checkActivation";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function DayliReports() {
+  const router = useRouter()
+
+  useEffect(() => {
+    checkActivation('dayli-report', router)
+  }, [])
   return (
     <>
       <PanelHeader />

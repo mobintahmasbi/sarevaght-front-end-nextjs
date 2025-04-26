@@ -23,7 +23,6 @@ export async function sendOtp(
 ) {
   const otpValidation = otpValidator(otp, detail);
   if (!otpValidation) {
-    console.log("hello");
     alert("کد تایید اشتباه است");
     return null;
   }
