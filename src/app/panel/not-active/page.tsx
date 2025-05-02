@@ -1,12 +1,25 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import PanelHeader from "../../components/panelHeader";
 import setAddress from "../../../../public/set-address.jpg";
 import setTiming from "../../../../public/set-timing.jpg";
+import AdjustAddress from "@/app/components/adjustAddress";
+import { useState } from "react";
 
 export default function NotActive() {
+  const [showAdjustAddressWindow, setShowAdjustAddressWindow] = useState(false);
+  function hideAdjustAddressWindow() {
+    setShowAdjustAddressWindow(false)
+  }
+  
   return (
     <>
+      {showAdjustAddressWindow && (
+        <>
+          <AdjustAddress hideWindow={hideAdjustAddressWindow} />
+        </>
+      )}
       <PanelHeader />
       <div className="w-full flex flex-wrap justify-center items-center sm:mb-0 mb-5">
         <div className="sm:w-[400px] sm:h-[490px] flex flex-wrap items-center justify-center main-border rounded-[15px] p-4 mt-6 mx-4">
@@ -15,7 +28,7 @@ export default function NotActive() {
           </div>
           <Image src={setAddress} alt="set-address" className="" />
           <div className="w-full flex items-center justify-center">
-            <button className="w-1/3 bg-main-blue text-white rounded-[15px] p-2 mt-2">
+            <button className="w-1/3 bg-main-blue text-white rounded-[15px] p-2 mt-2 cursor-pointer" onClick={() => setShowAdjustAddressWindow(true)}>
               تنظیم آدرس
             </button>
           </div>
