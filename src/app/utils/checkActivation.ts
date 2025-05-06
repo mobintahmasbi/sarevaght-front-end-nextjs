@@ -1,6 +1,6 @@
 import axios from "axios";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import dayNames from "./dayName";
+import { dayNames } from "./dayName";
 
 export async function checkActivation(
   pageName: string,
@@ -45,7 +45,7 @@ export async function checkActivation(
   return returningObj
 }
 
-async function getAdditionalData(token: string) {
+export async function getAdditionalData(token: string) {
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_URL}/business/additional-data`,

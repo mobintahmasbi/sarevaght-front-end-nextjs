@@ -1,4 +1,4 @@
-const dayNames = {
+export const dayNames = {
     'Saturday': 'شنبه',
     'Sunday': 'یکشنبه',
     'Monday': 'دوشنبه',
@@ -6,6 +6,6 @@ const dayNames = {
     'Wednesday': 'چهارشنبه',
     'Thursday': 'پنجشنبه',
     'Friday': 'جمعه'
-}
+} as const
 
-export default dayNames;
+export type EnDay = keyof typeof dayNames

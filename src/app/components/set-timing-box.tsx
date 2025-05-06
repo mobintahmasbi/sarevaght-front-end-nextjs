@@ -1,16 +1,20 @@
+"use client"
 import ISetTiming from "../utils/ISetTiming";
 
 export default function SetTimingBox({
   dayName,
   morning,
   afternoon,
+  enDayName,
+  changer
 }: ISetTiming) {
   let morningTimes = null;
   let afternoonTimes = null;
-  if (morning !== "closed") {
+  
+  if (morning !== "closed" && morning != "") {
     morningTimes = morning.split("-");
   }
-  if (afternoon !== "closed") {
+  if (afternoon !== "closed" && afternoon != "") {
     afternoonTimes = afternoon.split("-");
   }
   return (
@@ -28,10 +32,10 @@ export default function SetTimingBox({
             <div className="font-bold dark-white">شیفت صبح :</div>
             <div
               className={`font-bold ${
-                morning === "closed" ? "main-red" : "dark-green"
+                morning === "closed" ? "main-red" : morning == "" ? "main-gray": "dark-green"
               }`}
             >
-              {morning === "closed" ? "بسته" : "باز"}
+              {morning === "closed" ? "بسته" : morning == ""? "نامشخص": "باز"}
             </div>
           </div>
           <div className="sm:mx-2 my-3 flex justify-between items-center">
@@ -40,7 +44,13 @@ export default function SetTimingBox({
               <input
                 type="text"
                 className="main-border bg-milky w-[55px] py-1 rounded-[4px] text-center text-[14px]"
-                placeholder={morningTimes ? morningTimes[0] : "9"}
+                placeholder={morningTimes ? morningTimes[0] : "9:00"}
+                value={morningTimes? morningTimes[0]: "9:00"}
+                onChange={(e) => {
+                  if(morningTimes != null) {
+                    changer(enDayName, "morning", `${e.target.value}-${morningTimes[1]}`)
+                  }
+                }}
               />
             </div>
             <div className="font-bold flex items-center">
@@ -48,7 +58,13 @@ export default function SetTimingBox({
               <input
                 type="text"
                 className="main-border bg-milky w-[55px] py-1 rounded-[4px] text-center text-[14px]"
-                placeholder={morningTimes ? morningTimes[1] : "13"}
+                placeholder={morningTimes ? morningTimes[1] : "13:00"}
+                value={morningTimes? morningTimes[1]: "13:00"}
+                onChange={(e) => {
+                  if(morningTimes != null) {
+                    changer(enDayName, "morning", `${morningTimes[0]}-${e.target.value}`)
+                  }
+                }}
               />
             </div>
           </div>
@@ -58,10 +74,17 @@ export default function SetTimingBox({
             className={`w-full rounded-[15px] py-1 mb-1 cursor-pointer font-bold ${
               morning === "closed"
                 ? "dark-green bg-light-green"
-                : "main-red bg-light-red"
+                : morning == "" ? "main-gray bg-light-gray": "main-red bg-light-red"
             }`}
+            onClick={() => {
+              if(morning === "closed") {
+                changer(enDayName, "morning", "9:00-13:00")
+              } else {
+                changer(enDayName, "morning", "closed")
+              }
+            }}
           >
-            {morning === "closed" ? "باز" : "بسته"}
+            {morning === "closed" ? "باز" : morning == "" ? "مشخص کردن": "بسته"}
           </button>
           <hr className="secondary-border" />
         </div>
@@ -70,10 +93,10 @@ export default function SetTimingBox({
             <div className="font-bold dark-white">شیفت شب :</div>
             <div
               className={`font-bold ${
-                afternoon === "closed" ? "main-red" : "dark-green"
+                afternoon === "closed" ? "main-red" : afternoon == "" ? "main-gray": "dark-green"
               }`}
             >
-              {afternoon === "closed" ? "بسته" : "باز"}
+              {afternoon === "closed" ? "بسته" : afternoon == "" ? "نامشخص": "باز"}
             </div>
           </div>
           <div className="sm:mx-2 my-3 flex justify-between items-center">
@@ -82,7 +105,14 @@ export default function SetTimingBox({
               <input
                 type="text"
                 className="main-border bg-milky w-[55px] py-1 rounded-[4px] text-center text-[14px]"
-                placeholder={afternoonTimes ? afternoonTimes[0] : "17"}
+                placeholder={afternoonTimes ? afternoonTimes[0] : "17:00"}
+                value={afternoonTimes? afternoonTimes[0]: "17:00"}
+                onChange={(e) => {
+                  if(afternoonTimes != null) {
+                    changer(enDayName, "afternoon", `${e.target.value}-${afternoonTimes[1]}`)
+                  }
+                }}
+                
               />
             </div>
             <div className="font-bold flex items-center">
@@ -90,7 +120,13 @@ export default function SetTimingBox({
               <input
                 type="text"
                 className="main-border bg-milky w-[55px] py-1 rounded-[4px] text-center text-[14px]"
-                placeholder={afternoonTimes ? afternoonTimes[1] : "21"}
+                placeholder={afternoonTimes ? afternoonTimes[1] : "21:00"}
+                value={afternoonTimes? afternoonTimes[1]: "21:00"}
+                onChange={(e) => {
+                  if(afternoonTimes != null) {
+                    changer(enDayName, "afternoon", `${afternoonTimes[0]}-${e.target.value}`)
+                  }
+                }}
               />
             </div>
           </div>
@@ -100,10 +136,17 @@ export default function SetTimingBox({
             className={`w-full rounded-[15px] py-1 mb-1 cursor-pointer font-bold ${
               afternoon === "closed"
                 ? "dark-green bg-light-green"
-                : "main-red bg-light-red"
+                : afternoon == "" ? "bg-light-gray main-gray": "main-red bg-light-red"
             }`}
+            onClick={() => {
+              if(afternoon === "closed") {
+                changer(enDayName, "afternoon", "17:00-21:00")
+              } else {
+                changer(enDayName, "afternoon", "closed")
+              }
+            }}
           >
-            {afternoon === "closed" ? "باز" : "بسته"}
+            {afternoon === "closed" ? "باز" : afternoon == "" ? "مشخص کردن": "بسته"}
           </button>
         </div>
       </div>
