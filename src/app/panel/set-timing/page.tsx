@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import PanelHeader from "@/app/components/panelHeader";
 import SetTimingBox from "@/app/components/set-timing-box";
@@ -6,15 +7,17 @@ import { useEffect, useState } from "react";
 import {dayNames, EnDay} from "@/app/utils/dayName";
 import type { WorkSchedule } from "@/app/utils/dayType";
 import sendWorkScheduleData from "@/app/utils/setTiming.functionality";
+import { useRouter } from "next/navigation";
 
 export default function SetTiming() {
   const [timingList, setTimingList] = useState<Partial<WorkSchedule>>({});
+  const router = useRouter()
 
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token !== null) {
-      getAdditionalData(token).then((value) => {
+      getAdditionalData(token, router).then((value) => {
         if (value?.workSchedule) {
           // Should already match WorkSchedule
           setTimingList(value.workSchedule);

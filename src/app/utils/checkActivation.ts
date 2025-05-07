@@ -15,7 +15,7 @@ export async function checkActivation(
     router.push("/");
     return null;
   }
-  const data = await getAdditionalData(token);
+  const data = await getAdditionalData(token, router);
   if (data == null) {
     return null;
   }
@@ -41,11 +41,13 @@ export async function checkActivation(
     }
     returningObj.address = true;
   }
-
+  if(pageName === 'not-active' && !returningObj.address && !returningObj.workSchedule) {
+    router.push('/panel/dayli-reports')
+  }
   return returningObj
 }
 
-export async function getAdditionalData(token: string) {
+export async function getAdditionalData(token: string, router: AppRouterInstance) {
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_URL}/business/additional-data`,
@@ -62,6 +64,7 @@ export async function getAdditionalData(token: string) {
           alert(
             "شما مجوز دسترسی به پنل کاربری را ندارید. لطفا دوباره وارد شوید."
           );
+          router.push('/phone-entry')
           return null;
         }
         if (error.status == 500) {
