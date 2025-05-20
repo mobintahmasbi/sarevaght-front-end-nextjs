@@ -30,7 +30,13 @@ export default function PanelHeader() {
             </li>
           </ul>
         </div>
-        <Image src={userIcon} alt="user-icon" className="me-4 cursor-pointer" />
+        <Link href={"/panel/setting"}>
+          <Image
+            src={userIcon}
+            alt="user-icon"
+            className="me-4 cursor-pointer"
+          />
+        </Link>
       </header>
     </>
   );

@@ -182,7 +182,9 @@ export default function Setting() {
             </button>
           </div>
           <div className="w-full px-5">
-            <button className="w-full bg-main-blue text-white py-2 rounded-[15px] mt-4 font-bold main-shadow cursor-pointer">
+            <button className="w-full bg-main-blue text-white py-2 rounded-[15px] mt-4 font-bold main-shadow cursor-pointer" onClick={() => {
+              router.push(`/page/${userInfoState.businessURL}`)
+            }}>
               دیدن صفحه شخصی
             </button>
           </div>
